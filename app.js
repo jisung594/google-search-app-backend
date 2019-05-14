@@ -22,9 +22,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-// INSERTED
+
+// INSERTED ------------------------------------------
 var apiRouter = require("./routes/testAPI")
 app.use("/testAPI", apiRouter)
+
+var cors = require("cors")
+app.use(cors())
+// ---------------------------------------------------
 
 
 // catch 404 and forward to error handler
